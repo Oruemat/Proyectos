@@ -1,0 +1,124 @@
+/* Colores similares al sitio PersonalPay */
+:root {
+    --primary-color: #9B27B0; /* Morado */
+    --secondary-color: #FF5722; /* Naranja */
+    --light-gray: #F3F3F3; /* Gris claro */
+    --dark-gray: #212121; /* Gris oscuro */
+}
+
+/* Estilos generales */
+body {
+    background-color: var(--light-gray);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Aseguramos que el body ocupe toda la altura de la ventana */
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* Contenedor general */
+.container-fluid {
+    max-width: 1600px; /* Ancho máximo */
+    margin: 0 auto; /* Centramos el contenedor horizontalmente */
+    display: flex;
+    justify-content: center; /* Centrar los bloques horizontalmente */
+    align-items: center; /* Centrar los bloques verticalmente */
+    min-height: 100vh; /* Aseguramos que el contenedor ocupe toda la altura de la pantalla */
+}
+
+/* Bloques principales */
+.unificado{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+.timer-section,.tasks-section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos para la lista de tareas */
+.task-list {
+    max-height: 300px; /* Altura máxima */
+    overflow-y: auto; /* Habilitar desplazamiento vertical */
+    margin-top: 20px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Espaciado entre tareas */
+}
+
+.task-item .task-checkbox {
+    margin-right: 10px;
+}
+
+/* Barra de progreso */
+#progressBar {
+    width: 100%;
+}
+
+#kpi-value {
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Cronómetro */
+.timer-display {
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.buttons button {
+    margin: 5px;
+}
+
+/* Responsividad con Bootstrap */
+@media (max-width: 1199px) {
+    /* Dispositivo mediano: Pantallas de tablet */
+    .tasks-section, 
+    .timer-section {
+        flex: 1 1 100%; /* Ocupa todo el ancho disponible en pantallas medianas */
+    }
+    .unificado{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Dispositivo pequeño: Pantallas de teléfono */
+    .tasks-section, 
+    .timer-section {
+        flex: 1 1 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
+    }
+
+    .task-list {
+        max-height: 200px; /* Reducir altura de la lista en pantallas pequeñas */
+    }
+
+    .timer-display {
+        font-size: 36px; /* Reducir tamaño de la fuente en pantallas pequeñas */
+    }
+}
+
+
+
+

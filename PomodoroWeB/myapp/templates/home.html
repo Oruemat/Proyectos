@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'myapp/main.css' %}">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row g-4 unificado">
+            <!-- Sección de Tareas -->
+            <div class="col-lg-6 col-md-6 col-12 tasks-section">
+                <h2>Listado de Tareas</h2>
+                <div class="mb-3 w-100">
+                    <input type="text" class="form-control" id="taskName" placeholder="Agregar nueva tarea">
+                </div>
+                <div class="input-group w-100">
+                    <div class="mb-2">
+                        <input type="number" class="form-control" id="taskTime" placeholder="Tiempo tarea (minutos)">
+                    </div>
+                    <div class="mb-2">
+                        <input type="number" class="form-control" id="shortBreak" placeholder="Pausa corta (minutos)">
+                    </div>
+                    <div class="mb-2">
+                        <input type="number" class="form-control" id="longBreak" placeholder="Pausa larga (minutos)">
+                    </div>
+                    <div class="mb-2">
+                        <input type="number" class="form-control" id="rounds" placeholder="Número de rondas">
+                    </div>
+                    <div class="mb-2">
+                        <button id="addtask-btn" class="btn btn-primary w-100">Agregar Tarea</button>
+                    </div>
+                </div>
+
+                <ul class="task-list" id="taskList">
+                    <!-- Tarea añadida -->
+                </ul>
+
+                <!-- Barra de KPI -->
+                <div class="mt-4">
+                    <h4>Progreso del día</h4>
+                    <input type="range" class="form-range" id="progressBar" min="0" max="100" value="0">
+                    <span id="kpi-value">0%</span>
+                </div>
+
+                <!-- Mensaje de finalización -->
+                <div class="alert alert-success mt-4" id="completion-message" style="display: none;">
+                    ¡Felicidades! Has completado todas tus tareas del día.
+                </div>
+            </div>
+
+            <!-- Sección de Cronómetro -->
+            <div class="col-lg-6 col-md-6 col-12 timer-section">
+                <h2>Cronómetro Pomodoro</h2>
+
+                <div id="task-title" class="task-title">No hay tarea en ejecución</div>
+
+                <div id="timer" class="timer-display">00:00</div>
+
+                <div class="buttons mt-4" id="controlButtons">
+                    <button id="startButton" class="btn btn-primary" onclick="startTask()">Iniciar</button>
+                    <button id="pauseButton" class="btn btn-warning" onclick="pauseTimer()">Pausar</button>
+                    <button id="resetButton" class="btn btn-secondary" onclick="resetTimer()">Reiniciar</button>
+                    <button id="finishButton" class="btn btn-primary" onclick="finishTask()">Finalizar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{% static 'myapp/main.js' %}"></script>
+
+</body>
+</html>
